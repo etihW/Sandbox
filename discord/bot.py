@@ -17,13 +17,21 @@ async def test(*args):
 
 @my_bot.command()
 async def remember(*args):
+    f = open("remember.txt", "w+")
+    
     for x in args:
-        rememberBox += x
-    return await my_bot.say("Okay, I'll remember " + rememberBox)
+        if x == args[-1]:
+            f.write(x)
+        else:
+            f.write(x + " ")
+    f.close()
+    f = open("remember.txt", "r")
+    return await my_bot.say("Okay, I'll remember " + f.read())
 
 @my_bot.command()
 async def remind(*args):
-    return await my_bot.say("Oh yeah! You wanted me to remind you about " + rememberBox)
+    f = open("remember.txt", "r")
+    return await my_bot.say("Oh yeah! You wanted me to remind you about " + f.read())
 
 
 
