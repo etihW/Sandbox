@@ -17,8 +17,8 @@ async def test(*args):
 
 @my_bot.command()
 async def time(*args)
-    
-    return await my_bot.say()
+    clock = time.now()
+    return await my_bot.say("The current time is " clock + ".")
 
 @my_bot.command()
 async def remember(*args):
