@@ -16,6 +16,11 @@ async def test(*args):
     return await my_bot.say("I copy")
 
 @my_bot.command()
+async def time(*args)
+    
+    return await my_bot.say()
+
+@my_bot.command()
 async def remember(*args):
     f = open("remember.txt", "w+")
     
